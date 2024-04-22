@@ -59,6 +59,7 @@ class Datum:
     DATUM_WIDTH=width
     self.height = DATUM_HEIGHT
     self.width = DATUM_WIDTH
+    #print(data == None)
     if data == None:
       data = [[' ' for i in range(DATUM_WIDTH)] for j in range(DATUM_HEIGHT)] 
     self.pixels = util.arrayInvert(convertToInteger(data)) 
@@ -101,7 +102,9 @@ def loadDataFile(filename, n,width,height):
   """
   DATUM_WIDTH=width
   DATUM_HEIGHT=height
-  fin = readlines(filename)
+  fin = readlines(filename) # all the lines in the data file
+  #print(fin)
+  #print(len(fin))
   fin.reverse()
   items = []
   for i in range(n):
@@ -113,6 +116,7 @@ def loadDataFile(filename, n,width,height):
       # we encountered end of file...
       print("Truncating at %d examples (maximum)" % i)
       break
+    #print(data)
     items.append(Datum(data,DATUM_WIDTH,DATUM_HEIGHT))
   return items
 
@@ -167,8 +171,10 @@ def convertToInteger(data):
   Helper function for file reading.
   """
   if type(data) != type([]):
+    #print('Int Convert')
     return IntegerConversionFunction(data)
   else:
+    #print('Map')
     return map(convertToInteger, data)
 
 # Testing
@@ -177,10 +183,10 @@ def _test():
   import doctest
   doctest.testmod() # Test the interactive sessions in function comments
   n = 1
-#  items = loadDataFile("facedata/facedatatrain", n,60,70)
-#  labels = loadLabelsFile("facedata/facedatatrainlabels", n)
-  items = loadDataFile("digitdata/trainingimages", n,28,28)
-  labels = loadLabelsFile("digitdata/traininglabels", n)
+  items = loadDataFile("facedata/facedatatrain", n,60,70)
+  labels = loadLabelsFile("facedata/facedatatrainlabels", n)
+  #items = loadDataFile("digitdata/trainingimages", n,28,28)
+  #labels = loadLabelsFile("digitdata/traininglabels", n)
   for i in range(1):
     print (items[i])
     print (items[i])

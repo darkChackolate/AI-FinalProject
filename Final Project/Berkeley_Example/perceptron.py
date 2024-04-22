@@ -20,7 +20,7 @@ class PerceptronClassifier:
   def __init__( self, legalLabels, max_iterations):
     self.legalLabels = legalLabels
     self.type = "perceptron"
-    self.max_iterations = max_iterations
+    self.max_iterations = max_iterations # when we will stop algorithm
     self.weights = {}
     for label in legalLabels:
       self.weights[label] = util.Counter() # this is the data-structure you should use
@@ -40,15 +40,18 @@ class PerceptronClassifier:
     datum is a counter from features to values for those features
     (and thus represents a vector a values).
     """
-    
+    '''
+    Might need to uncomment this out later
     self.features = trainingData[0].keys() # could be useful later
+    '''
     # DO NOT ZERO OUT YOUR WEIGHTS BEFORE STARTING TRAINING, OR
     # THE AUTOGRADER WILL LIKELY DEDUCT POINTS.
-    
+    print(self.max_iterations)
     for iteration in range(self.max_iterations):
       print ("Starting iteration ", iteration, "...")
       for i in range(len(trainingData)):
           "*** YOUR CODE HERE ***"
+          # i = Datum object == image
           util.raiseNotDefined()
     
   def classify(self, data ):
