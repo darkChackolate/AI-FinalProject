@@ -6,7 +6,7 @@
 # John DeNero (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
 # For more info, see http://inst.eecs.berkeley.edu/~cs188/sp09/pacman.html
 
-import util
+from Berkeley_Example import util
 
 ## Constants
 DATUM_WIDTH = 0 # in pixels
@@ -102,9 +102,14 @@ def loadDataFile(filename, n,width,height):
   """
   DATUM_WIDTH=width
   DATUM_HEIGHT=height
+<<<<<<< Updated upstream
   fin = readlines(filename) # all the lines in the data file
   #print(fin)
   #print(len(fin))
+=======
+  fin = readlines(filename)
+  #print(fin)
+>>>>>>> Stashed changes
   fin.reverse()
   items = []
   for i in range(n):
