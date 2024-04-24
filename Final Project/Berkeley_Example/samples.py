@@ -62,7 +62,7 @@ class Datum:
     #print(data == None)
     if data == None:
       data = [[' ' for i in range(DATUM_WIDTH)] for j in range(DATUM_HEIGHT)] 
-    self.pixels = util.arrayInvert(convertToInteger(data)) 
+    self.pixels = data # util.arrayInvert(convertToInteger(data)) 
     
   def getPixel(self, column, row):
     """
